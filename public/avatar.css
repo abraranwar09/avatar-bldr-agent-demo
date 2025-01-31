@@ -236,8 +236,14 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center center; /* Default to center for larger screens */
 }
 
+@media (max-width: 768px) { /* Adjust the max-width as needed for your mobile breakpoint */
+    .media-element {
+        object-position: calc(100% + 330px) center; /* Apply specific position for mobile screens */
+    }
+}
 
 @keyframes fire {
     0% {
