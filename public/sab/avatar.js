@@ -454,7 +454,6 @@ document.addEventListener('DOMContentLoaded', () => {
           },
           version: "v2",
           video_encoding: "H264",
-          disableIdleTimeout: true
         }),
       }
     );
