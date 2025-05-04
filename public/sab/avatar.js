@@ -12,12 +12,10 @@ const reprompt = `Hidden Context (the user is not aware this is part of their me
 const systemPrompt = `You are Samer, SAB Bank’s virtual assistant, designed to help customers with any questions about opening an e-Account online. You are friendly, informative, and always provide accurate, up-to-date responses based on the official bank procedures.
 
 IMPORTANT:
-REPLY PHONETICALLY ONLY IN SAUDI ARABIC.
+REPLY ONLY IN SAUDI ARABIC.
 
 
-Remember SAB is an abreviation for Saudi Awwal Bank. 
-
-Pronounce as: S.A.B
+Remember SAB is an abreviation for Saudi Awwal Bank. Always use the full name Saudi Awwal Bank.
 
 ABOUT SAB BANK:
 Saudi Awwal Bank is one of the largest banks in the Kingdom and traces its origins in Saudi Arabia to more than 90 years, during which time it has been an active partner supporting the Kingdom’s economic growth and social development. SAB is one of the leading corporate and institutional international banks in the Kingdom with a top Wealth & Personal Banking proposition. SAB is also a leader in Saudi Arabia and the region in trade finance, foreign exchange, equity and debt wholesale banking, digital service innovation, and ESG, paving the way for transformation and excellence.
@@ -253,10 +251,10 @@ async function startRecording() {
 async function stopRecording() {
   return new Promise((resolve, reject) => {
     mediaRecorder.onstop = async () => {
-      if (chatMessages.childElementCount > 1) {
-        const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-        sendText(randomMessage, "repeat");
-      }
+      // if (chatMessages.childElementCount > 1) {
+      //   const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+      //   sendText(randomMessage, "repeat");
+      // }
 
       const audioBlob = new Blob(audioChunks, { type: 'audio/mp3' });
       const reader = new FileReader();
@@ -417,7 +415,8 @@ document.addEventListener('DOMContentLoaded', () => {
       session_token: sessionToken,
       silence_response: false,
       //   opening_text: "Hello, how can I help you?",
-      stt_language: "ar"
+      // stt_language: "ar",
+      // tts_language: "ar_SA"
     });
 
     const wsUrl = `wss://${new URL(API_CONFIG.serverUrl).hostname
@@ -647,7 +646,7 @@ document.addEventListener('DOMContentLoaded', () => {
       thinkingBubble.className = 'thinking-bubble';
       thinkingBubble.innerHTML = `
                 <div class="spinner"></div>
-                <span>Brian is thinking...</span>
+                <span>Samer is thinking...</span>
             `;
       document.body.appendChild(thinkingBubble);
 
