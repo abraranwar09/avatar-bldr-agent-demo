@@ -222,19 +222,19 @@ let mediaRecorder;
 let audioChunks = [];
 const talkButton = document.getElementById('talkButton');
 
-// const messages = [
-//     "دعني أفكر في ذلك",
-//     "امممم...لحظة واحدة فقط...",
-//     "أعطني ثانية...",
-//     "تمام..."
-// ];
-
 const messages = [
-  "Let me think about that...",
-  "Hmm... just one moment...",
-  "Give me a second...",
-  "Okay..."
+    "دعني أفكر في ذلك",
+    "امممم...لحظة واحدة فقط...",
+    "أعطني ثانية...",
+    "تمام..."
 ];
+
+// const messages = [
+//   "Let me think about that...",
+//   "Hmm... just one moment...",
+//   "Give me a second...",
+//   "Okay..."
+// ];
 
 async function startRecording() {
   const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -415,7 +415,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const params = new URLSearchParams({
       session_id: sessionId,
       session_token: sessionToken,
-      silence_response: true,
+      silence_response: false,
       //   opening_text: "Hello, how can I help you?",
       stt_language: "ar"
     });
@@ -455,6 +455,7 @@ document.addEventListener('DOMContentLoaded', () => {
           },
           version: "v2",
           video_encoding: "H264",
+          disableIdleTimeout: true
         }),
       }
     );
