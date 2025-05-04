@@ -447,7 +447,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         body: JSON.stringify({
           quality: "high",
-          avatar_name: 'Graham_Chair_Sitting_public',
+          avatar_name: 'Dexter_Lawyer_Sitting_public',
           voice: {
             voice_id: '9db0ca21b07f41b4b81c3961859a68f2',
             rate: 1,
